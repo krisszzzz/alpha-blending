@@ -1,0 +1,157 @@
+[
+{
+  "directory": "/mnt/OpenGL-shaders/build",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/src -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/Patcher.dir/src/main.cpp.o -c /mnt/OpenGL-shaders/src/main.cpp",
+  "file": "/mnt/OpenGL-shaders/src/main.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/src -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/Patcher.dir/lib/log.cpp.o -c /mnt/OpenGL-shaders/lib/log.cpp",
+  "file": "/mnt/OpenGL-shaders/lib/log.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/src -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/Patcher.dir/src/WinMain.cpp.o -c /mnt/OpenGL-shaders/src/WinMain.cpp",
+  "file": "/mnt/OpenGL-shaders/src/WinMain.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/src -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/Patcher.dir/src/Patcher/Patcher.cpp.o -c /mnt/OpenGL-shaders/src/Patcher/Patcher.cpp",
+  "file": "/mnt/OpenGL-shaders/src/Patcher/Patcher.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/context.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/context.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/context.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/init.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/init.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/init.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/input.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/input.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/input.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/monitor.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/monitor.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/monitor.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/platform.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/platform.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/platform.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/vulkan.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/vulkan.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/vulkan.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/window.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/window.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/window.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/egl_context.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/egl_context.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/egl_context.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/osmesa_context.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/osmesa_context.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/osmesa_context.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_init.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/null_init.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/null_init.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_monitor.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/null_monitor.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/null_monitor.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_window.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/null_window.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/null_window.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -Wdeclaration-after-statement -o CMakeFiles/glfw.dir/null_joystick.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/null_joystick.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/null_joystick.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_module.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/posix_module.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/posix_module.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_time.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/posix_time.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/posix_time.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_thread.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/posix_thread.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/posix_thread.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_init.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/x11_init.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/x11_init.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_monitor.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/x11_monitor.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/x11_monitor.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/x11_window.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/x11_window.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/x11_window.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/xkb_unicode.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/xkb_unicode.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/xkb_unicode.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/glx_context.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/glx_context.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/glx_context.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/linux_joystick.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/linux_joystick.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/linux_joystick.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/glfw/src",
+  "command": "/usr/bin/cc -D_DEFAULT_SOURCE -D_GLFW_X11 -I/mnt/OpenGL-shaders/lib/glfw/include -I/mnt/OpenGL-shaders/lib/glfw/src -I/mnt/OpenGL-shaders/build/lib/glfw/src -O3 -DNDEBUG -fPIC -Wall -std=c99 -o CMakeFiles/glfw.dir/posix_poll.c.o -c /mnt/OpenGL-shaders/lib/glfw/src/posix_poll.c",
+  "file": "/mnt/OpenGL-shaders/lib/glfw/src/posix_poll.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/lib/GLAD",
+  "command": "/usr/bin/cc  -I/mnt/OpenGL-shaders/lib/GLAD/include -O3 -DNDEBUG -o CMakeFiles/glad.dir/src/glad.c.o -c /mnt/OpenGL-shaders/lib/GLAD/src/glad.c",
+  "file": "/mnt/OpenGL-shaders/lib/GLAD/src/glad.c"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/src/resource-manager",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/resource_manager.dir/src/resource_manager.cpp.o -c /mnt/OpenGL-shaders/src/resource-manager/src/resource_manager.cpp",
+  "file": "/mnt/OpenGL-shaders/src/resource-manager/src/resource_manager.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/src/resource-manager",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/resource_manager.dir/src/murmurhash.cpp.o -c /mnt/OpenGL-shaders/src/resource-manager/src/murmurhash.cpp",
+  "file": "/mnt/OpenGL-shaders/src/resource-manager/src/murmurhash.cpp"
+},
+{
+  "directory": "/mnt/OpenGL-shaders/build/src/resource-manager",
+  "command": "/usr/bin/c++  -I/mnt/OpenGL-shaders/lib -I/mnt/OpenGL-shaders/src/resource-manager/src -I/mnt/OpenGL-shaders/lib/GLAD/include -D NDEBUG -Ofast -march=native -ansi -std=gnu++2a -Wc++11-compat -Wc++14-compat -Wc++17-compat -Wall -Wextra -Weffc++ -Waggressive-loop-optimizations -Walloc-zero -Walloca -Walloca-larger-than=8192 -Warray-bounds -Wcast-align -Wcast-qual -Wchar-subscripts -Wconditionally-supported -Wconversion -Wctor-dtor-privacy -Wdangling-else -Wduplicated-branches -Wempty-body -Wfloat-equal -Wformat-nonliteral -Wformat-security -Wformat-signedness -Wformat=2 -Wformat-overflow=2 -Wformat-truncation=2 -Winline -Wlarger-than=8192 -Wvla-larger-than=8192 -Wlogical-op -Wmissing-declarations -Wnon-virtual-dtor -Wopenmp-simd -Woverloaded-virtual -Wpacked -Wpointer-arith -Wredundant-decls -Wrestrict -Wshadow -Wsign-promo -Wstack-usage=8192 -Wstrict-null-sentinel -Wstrict-overflow=2 -Wstringop-overflow=4 -Wsuggest-attribute=noreturn -Wsuggest-final-types -Wsuggest-override -Wswitch-default -Wswitch-enum -Wsync-nand -Wundef -Wunreachable-code -Wunused -Wvariadic-macros -Wno-literal-suffix -Wno-missing-field-initializers -Wnarrowing -Wno-old-style-cast -Wvarargs -Waligned-new -Walloc-size-larger-than=1073741824 -Walloc-zero -Walloca -Walloca-larger-than=8192 -Wcast-align=strict -Wdangling-else -Wduplicated-branches -Wformat-overflow=2 -Wformat-truncation=2 -Wmissing-attributes -Wmultistatement-macros -Wrestrict -Wshadow=global -Wsuggest-attribute=malloc -fcheck-new -fsized-deallocation -fstack-check -fstrict-overflow -flto-odr-type-merging -O3 -DNDEBUG -o CMakeFiles/resource_manager.dir/__/__/lib/log.cpp.o -c /mnt/OpenGL-shaders/lib/log.cpp",
+  "file": "/mnt/OpenGL-shaders/lib/log.cpp"
+}
+]

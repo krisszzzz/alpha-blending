@@ -268,12 +268,13 @@ static inline void print_shader_errors(shader* shaders)
         }
 
         if (check_shader_status(shaders->status, SHADERS_LINKING_COMPILE_ERROR)) {
-                printf(RED "LINKING_ON_COMPILE_ERROR\n");
+                printf(RED "LINKING_ON_COMPILE_ERROR " END);
         }
 
         if (check_shader_status(shaders->status, SHADERS_LINKING_GL_ATTACH_ERROR)) {
-                printf(RED "GL_ATTACH_ERROR\n");
+                printf(RED "GL_ATTACH_ERROR " END);
         }
+
         printf("\n");
 
 }
@@ -292,10 +293,11 @@ static int shader_log(shader* shaders, int iter_count)
 
                 printf(BLUE "%-25s " END, shader_type_str_by_iter_count(iter_count));
 
-                if (shaders->status != (SHADERS_COMPILED & SHADERS_LINKED)) {
-                        printf(RED "*");
-                } else {
+                if (check_shader_status(shaders->status, SHADERS_COMPILED) &&
+                    check_shader_status(shaders->status, SHADERS_LINKED)) {
                         printf(GREEN);
+                } else {
+                        printf(RED "*");
                 }
 
 
@@ -455,13 +457,13 @@ static int link_prog(shader_program* prog)
 
 // ++-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+--+-
 // Compilation stage
-static void shader_compile_status(shader_program* prog, int iter_count)
+static int shader_compile_status(shader_program* prog, int iter_count)
 {
         int result = 0;
 
         glGetShaderiv(SHADER(iter_count).shader_id, GL_COMPILE_STATUS, &result);
 
-        if(!result) {  // Compilation syntax error
+        if(result == GL_FALSE) {  // Compilation syntax error
 
                 set_shad_status(SHADERS_COMPILATION_SYNTAX_ERROR);
                 printf(RED "Shader compilation error\n" END);
@@ -479,7 +481,7 @@ static void shader_compile_status(shader_program* prog, int iter_count)
                         ErrorPrint(RED "ERROR:" END "memory allocation error, cannot make log about"
                                    "inccorect shader compilation\n");
                         set_shad_prog_status(SHADER_PROG_LOG_MALLOC_ERROR);
-                        return;
+                        return NULLPTR;
                 }
 
                 glGetShaderInfoLog(SHADER(iter_count).shader_id,
@@ -494,7 +496,10 @@ static void shader_compile_status(shader_program* prog, int iter_count)
                 printf("%s\n\n\n", message);
 
                 free(message);
+
+                return -1;
         }
+        return 0;
 }
 
 
@@ -585,7 +590,11 @@ int create_shader_prog(const char* const shader_prog_name, const char* const ver
                 glCompileShader(SHADER(iter_count).shader_id);
                 free(shader_source);
 
-                shader_compile_status(prog, iter_count);
+                if (shader_compile_status(prog, iter_count)) {
+                   glDeleteShader(SHADER(iter_count).shader_id);
+                   continue;
+                }
+
                 set_shad_status(SHADERS_COMPILED);  // Set status
                 // Attaching shaders to program
 
