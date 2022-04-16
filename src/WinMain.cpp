@@ -131,60 +131,111 @@ void init_points(float* points)
         }
 }
 
-void alpha_blending(GLfloat*       colors         ,  unsigned char* rgba_background,
-                    unsigned char* rgba_foreground,  const int      fg_left_corner_x,
-                    const int      fg_left_corner_y, const int      fg_width,
-                    const int      fg_height)
+void alpha_blending(float*     rgba_background,  float*    rgba_foreground,
+                    const int  fg_left_corner_x, const int fg_left_corner_y,
+                    const int  fg_width,         const int fg_height)
 {
     for (int y = 0; y < fg_height * COLOR_MODEL; y += 4) {
         for (int x = 0; x < fg_width * COLOR_MODEL; x += 4) {
             int fg_pos   = x + y * fg_width; 
             int bg_pos   = x + COLOR_MODEL * fg_left_corner_x + (y + COLOR_MODEL * fg_left_corner_y) * WINDOW_WIDTH;
-            float alpha  = rgba_foreground[fg_pos + 3] / 255.0f;
-            colors[bg_pos]                   = (rgba_foreground[fg_pos] * alpha +
-                                                rgba_background[bg_pos] * (1.0f - alpha)) / 255.0f;
-            colors[bg_pos + 1]               = (rgba_foreground[fg_pos + 1] * alpha +
-                                                rgba_background[bg_pos + 1] * (1.0f - alpha)) / 255.0f;
-            colors[bg_pos + 2]               = (rgba_foreground[fg_pos + 2] * alpha +
-                                                rgba_background[bg_pos + 2] * (1.0f - alpha)) / 255.0f;
+            float alpha  = rgba_foreground[fg_pos + 3];
+            rgba_background[bg_pos]       = (rgba_foreground[fg_pos] * alpha +
+                                             rgba_background[bg_pos] * (1.0f - alpha));
+            rgba_background[bg_pos + 1]   = (rgba_foreground[fg_pos + 1] * alpha +
+                                             rgba_background[bg_pos + 1] * (1.0f - alpha));
+            rgba_background[bg_pos + 2]   = (rgba_foreground[fg_pos + 2] * alpha +
+                                             rgba_background[bg_pos + 2] * (1.0f - alpha));
         }
     }
 }
 
-void alpha_blending_avx2(GLfloat*       colors         ,  unsigned char* rgba_background,
-                         unsigned char* rgba_foreground,  const int      fg_left_corner_x,
-                         const int      fg_left_corner_y, const int      fg_width,
-                         const int      fg_height)
+inline void alpha_blending_avx2(float*    background,       float*    foreground,
+                                const int fg_left_corner_x, const int fg_left_corner_y,
+                                const int fg_width,         const int fg_height)  __attribute__((hot, nothrow));
+
+inline void alpha_blending_avx2(float*    background,       float*    foreground,
+                                const int fg_left_corner_x, const int fg_left_corner_y,
+                                const int fg_width,         const int fg_height)
 {
     for (int y = 0; y < fg_height * COLOR_MODEL; y += 4) {
-        for (int x = 0; x < fg_width * COLOR_MODEL; x += 4) {
-            
-        }
-    }
-}
+        for (int x = 0; x < fg_width * COLOR_MODEL; x += 8) {
 
-void load_background(GLfloat* colors, unsigned char* rgba_source)
-{
-    for (int y = 0; y < COLOR_MODEL * WINDOW_HEIGHT; y += 4) {
-        int curr_y = y * WINDOW_WIDTH;
-        for (int x = 0; x < COLOR_MODEL * WINDOW_WIDTH; x += 8) {
+            int fg_pos   = x + y * fg_width; 
+            int bg_pos   = x + COLOR_MODEL * fg_left_corner_x + (y + COLOR_MODEL * fg_left_corner_y) * WINDOW_WIDTH;
+            // fg:
+            //  7  6  5  4    3  2  1  0
+            // [r2 g2 b2 a2 | r1 g1 b1 a1]
             
-            //            __m256 _8_full_rgba_model  = _mm256_load_si256((__m256*)&rgba_source[curr_y]);
-            __m256 _2_full_rgba_model  = _mm256_set_ps((float)rgba_source[curr_y + (x + 7)],
-                                                       (float)rgba_source[curr_y + (x + 6)],
-                                                       (float)rgba_source[curr_y + (x + 5)],
-                                                       (float)rgba_source[curr_y + (x + 4)],
-                                                       (float)rgba_source[curr_y + (x + 3)],
-                                                       (float)rgba_source[curr_y + (x + 2)],
-                                                       (float)rgba_source[curr_y + (x + 1)],
-                                                       (float)rgba_source[curr_y + (x + 0)]);
             
-            __m256 _255f               = _mm256_set1_ps(1.0f / 255.0f);
-            __m256 normalized_col      = _mm256_mul_ps(_255f, _2_full_rgba_model);
+            __m256 back      = _mm256_loadu_ps(&background[bg_pos]);  // Latency = 3
+            __m256 front     = _mm256_loadu_ps(&foreground[fg_pos]);  // Latency = 3
+
+            __m256  alpha_h_2 = _mm256_movehdup_ps(_mm256_blend_ps(_mm256_setzero_ps(), front, 0x88));
+            __m256d alpha_l_2 = _mm256_castsi256_pd(_mm256_bsrli_epi128(_mm256_castps_si256(alpha_h_2), 8));
+            __m256  alpha     = _mm256_castpd_ps(_mm256_movedup_pd(alpha_l_2));
+           
+           __m256 blended = _mm256_add_ps(_mm256_sub_ps(_mm256_mul_ps(front, alpha), _mm256_mul_ps(back, alpha)), back);
+
+            _mm256_storeu_ps(&background[bg_pos], blended);
             
-            _mm256_storeu_ps(&colors[x + y * WINDOW_WIDTH], normalized_col);
-        }
-    } 
+            // Don't be disordered, the little-endian add some expressions that hard to explain. Such as integer mask 0x88
+            //                                                                                               0x88 = 10001000b 
+            // 1) _m256_blend_ps(_mm256_setzero_ps(), front, 10001000b) -> ret_val1
+            // fg:
+            //  7  6  5  4    3  2  1  0
+            // [r2 g2 b2 a2 | r1 g1 b1 a1]
+            //           |
+            // ret_val1: V 
+            //  7  6  5  4    3  2  1   0
+            // [0  0  0  a2 | 0  0  0  a1]
+                   
+            // 2) _mm256_movehdup_ps(_mm256_blend_ps(_mm256_setzero_ps(), front, 00010001b)) -> alpha_h_2
+
+            // ret_val1:       
+            //              7  6  5  4    3  2  1   0
+            //             [0  0  0  a2 | 0  0  0  a1]
+            //                       /             /
+            //                      /             /
+            //                     /             /
+            //                    ,             ,
+            //                    |             |
+            //                    |             |
+            //                    |             |
+            // alpha_h_2:         V             V
+            //             7  6   5   4   3  2  1   0
+            //             [0  0  a2  a2 | 0  0 a1  a1] 
+            //
+            //  3) _mm256_castsi256_pd(_mm256_bsrli_epi128(_mm256_castps_si256(alpha_h_2), 8)) -> alpha_l_2
+            // alpha_h_2:
+            //              7  6   5   4   3  2  1   0
+            //             [0  0  a2  a2 | 0  0  a1  a1] 
+            //                    /   /         /    /
+            //                   /   /         /    /
+            //              +---,   /      +--/+---/
+            //              |  +---,       |   |
+            //              |  |           |   |
+            //              |  |           |   |
+            //              |  |           |   |
+            // alpha_l_2:   |  |           |   |
+            //              V  V           V   V
+            //              7  6   5   4   3   2  1   0
+            //             [a2  a2  0  0 | a1  a1 0   0] 
+            //
+            //  4) _mm256_castpd_ps(_mm256_movedup_pd(alpha_l_2)) -> alpha
+            // alpha_l_2:
+            //   
+            //              7   6    5   4   3   2   1  0
+            //             [a2  a2   0   0 | a1  a1  0  0] 
+            //              \   \            \   \.
+            //               \   \+-----+     \   \.
+            //                \.        |      \.  ,-----+
+            //                 ,----+   |       ,----+   |
+            //                      |   |            |   |
+            // alpha:               V   V            V   V
+            //             [a2  a2  a2  a2 | a1  a1  a1  a1]
+        }         
+    }
 }
 
 void WinMain(GLFWwindow* window, GLuint shader_program)
@@ -193,8 +244,8 @@ void WinMain(GLFWwindow* window, GLuint shader_program)
     int vertex_indx_end   = PIXELS_COUNT;
     int color_position    = 1;
     
-    alignas(32) GLfloat* points = (GLfloat*)calloc(POINTS_COUNT, sizeof(GLfloat)); 
-    alignas(32) GLfloat* colors = (GLfloat*)calloc(COLORS_COUNT, sizeof(GLfloat));
+    GLfloat* points = (GLfloat*)calloc(POINTS_COUNT, sizeof(GLfloat)); 
+    GLfloat* colors = (GLfloat*)calloc(COLORS_COUNT, sizeof(GLfloat));
 
     int back_width  = 0;
     int back_height = 0;
@@ -204,11 +255,11 @@ void WinMain(GLFWwindow* window, GLuint shader_program)
     int fg_height   = 0;
     int fg_comp     = 0;
     
-    alignas(32) unsigned char* back_image = stbi_load("res/Table.bmp",     &back_width, &back_height, &back_comp, 4);
-    alignas(32) unsigned char* for_image  = stbi_load("res/AskhatCat.bmp", &fg_width,   &fg_height,   &fg_comp,   4);
+    float* back_image = stbi_loadf("res/Table.bmp",     &back_width, &back_height, &back_comp, 4);
+    float* for_image  = stbi_loadf("res/AskhatCat.bmp", &fg_width,   &fg_height,   &fg_comp,   4);
     
     init_points(points);
-    load_background(colors, back_image); // load back_image to normalized form into GLfloat* colors
+    //    load_background(colors, back_image); // load back_image to normalized form into GLfloat* colors
                                      // and use it further to load textures
                                      //my cringe version of manual textures loading
 
@@ -223,14 +274,30 @@ void WinMain(GLFWwindow* window, GLuint shader_program)
     while (!glfwWindowShouldClose(window)) {
         /* Render here */
 
-        start  = clock();
         glClear(GL_COLOR_BUFFER_BIT);
 
-        load_background(colors, back_image); // load back_image to normalized form into GLfloat* colors
-        alpha_blending(colors, back_image, for_image,  250, 200, fg_width, fg_height);
+        start  = clock();
+        for (int iter_count = 0; iter_count < 1000000; ++iter_count) {
+            alpha_blending(back_image, for_image,  250, 200, fg_width, fg_height);
+        }
+        // alpha_blending test
             
+        stop = clock();
+        double no_avx_time = (stop - start) / 1000000.0;
+        
+        start  = clock();
+        for (int iter_count = 0; iter_count < 1000000; ++iter_count) {
+            alpha_blending_avx2(back_image, for_image,  250, 200, fg_width, fg_height);
+        }
+        // alpha_blending with avx2 instructions test
+            
+        stop = clock();
+        double avx_time = (stop - start) / 1000000.0;
+        printf("with AVX2: %lf; without AVX2: %lf; %lf times is faster\n", avx_time, no_avx_time, no_avx_time / avx_time);
+        // compare and show results
+        
         glBindBuffer(GL_ARRAY_BUFFER, colors_vbo);
-        glBufferData(GL_ARRAY_BUFFER, COLORS_COUNT * sizeof(GLfloat), colors, GL_DYNAMIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, COLORS_COUNT * sizeof(GLfloat), back_image, GL_DYNAMIC_DRAW);
 
         glVertexAttribPointer(color_position, COLOR_MODEL,  GL_FLOAT,
                               GL_FALSE,       0,  nullptr);
@@ -245,9 +312,7 @@ void WinMain(GLFWwindow* window, GLuint shader_program)
         /* Poll for and process events */
         glfwPollEvents();
 
-        stop = clock();
 
-        printf("FPS: %lf\n", 1000000.0 / (stop - start));
 
         //                first_time = second_time;
 
